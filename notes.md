@@ -46,7 +46,6 @@ Obviously, we're using Git.  I think that's enough said.
 
 * (web) interface for configuration
 	* just manipulates the "scary plain-text" file in the user home directory
-	* this should be put way down low on the priority list, since it is not strictly necessary
 
 ## Remaining Tasks
 
