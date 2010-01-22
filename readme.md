@@ -10,6 +10,6 @@ TODO
 
 TODO
 
-### Setup Cron Job(s)
+### Cron Job(s) Setup
 
 TODO
