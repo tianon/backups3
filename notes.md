@@ -16,12 +16,12 @@
 	* documenter
 	* assistant manager
 * Josh
-	* primary coder
+	* primary config coder
 	* assistant tester
 	* optimist
 * Talon
 	* sniper
-	* coder
+	* secondary config coder
 	* tester
 	* not good looking enough to be a model/small weapon specialist
 
