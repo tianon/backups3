@@ -40,16 +40,20 @@ Obviously, we're using Git.  I think that's enough said.
 * nightly cron job that performs the backups (asynchronously, preferably)
 * Amazon S3 (easy, see <http://github.com/russross/s3fslite>)
 * web interface for retrieving backups
+
 	this merely needs to ask for the "bucket name", and the API keys, and then provide a nice interface for browsing their "backups"
 
 ## Bells and Whistles (to be implemented if time permits)
 
 * (web) interface for configuration
+
 	just manipulates the "scary plain-text" file in the user home directory
+
 	this should be put way down low on the priority list, since it is not strictly necessary
 
 ## Remaining Tasks
 
 * decide on configuration file format
 * decide how configuration will work
+
 	(default of include all files, or default of exclude all files?)
