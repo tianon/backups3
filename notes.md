@@ -12,11 +12,10 @@
 	* manager
 	* whatever is left
 * Jonathan
-	* IT/VT (web base coder) coder
+	* IT/VT (web based) coder
 	* documenter
 	* assistant manager
-	* with his IT background Jon is now primary over all VT ie web UI
-	* (shut up and yes it makes sense. IT should know all)
+	* with his IT background, Jon is now primary over all VT, ie. Web UI
 * Josh
 	* primary config coder
 	* assistant tester
