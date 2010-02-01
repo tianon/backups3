@@ -16,6 +16,6 @@ TODO (setting up the backup job to run)
 
 ### Local Configuration
 
-To configure the backup functionality of each directory, one can use the web interface provided.  In case the web interface is either not usable or undesirable, following are instructions for manual configuration.
+To configure the backup functionality of each directory, one can use the web interface provided.  In case the web interface is either not usable or undesirable, instructions for manual configuration can be found at <http://github.com/tianon/backups3/blob/master/backup-config.md>.
 
 TODO (manual config using the plain-text file)

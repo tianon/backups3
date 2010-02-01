@@ -25,11 +25,12 @@ Here's an example:
 ## Clauses
 
 * `bucket`
-	* see <http://aws.amazon.com/security-credentials>
+	* see [Amazon AWS "Security Credentials" page](http://aws.amazon.com/security-credentials)
+<!-- is this really where we go to discover our current bucket names? -->
 * `accessKeyId`
-	* see <http://aws.amazon.com/security-credentials>
+	* see [Amazon AWS "Security Credentials" page](http://aws.amazon.com/security-credentials)
 * `secretAccessKey`
-	* see <http://aws.amazon.com/security-credentials>
+	* see [Amazon AWS "Security Credentials" page](http://aws.amazon.com/security-credentials)
 * `include`
 	* see Include/Exclude section below
 * `exclude`

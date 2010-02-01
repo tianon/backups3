@@ -36,20 +36,18 @@ It is definitely the best tool for the script job, and will make all our lives M
 
 Obviously, we're using Git.  I think that's enough said.
 
-## Primary Features (must-haves)
+## Primary Features
 
 * nightly cron job that performs the backups (asynchronously, preferably)
-* Amazon S3 (easy, see <http://github.com/russross/s3fslite>)
+* Amazon S3 (see <http://github.com/russross/s3fslite>, or s3fslite submodule in this repository)
 * web interface for retrieving backups
-	* this merely needs to ask for the "bucket name", and the API keys, and then provide a nice interface for browsing their "backups"
-
-## Bells and Whistles (to be implemented if time permits)
-
-* (web) interface for configuration
+	* this merely needs to ask for the "bucket name" and the API keys, and then provide a nice interface for browsing their "backups"
+* web interface for configuration
 	* just manipulates the "scary plain-text" file in the user home directory
+	* this is our one and only "Dixie State College CIT Network" specific part, and if we do it right, even this can be generalized so that it is usable to others
 
 ## Remaining Tasks
 
-* decide on configuration file format  (Andrew is currently developing this)
-* decide how configuration will work
-	* (default of include all files, or default of exclude all files?)
+* implement cron job
+* implement web interface (browsing backups)
+* implement web interface (configuration)
