@@ -22,7 +22,7 @@ Here's an example:
 		size
 			greater than 1GB
 
-### Clauses
+## Clauses
 
 * `bucket`
 	* see <http://aws.amazon.com/security-credentials>
