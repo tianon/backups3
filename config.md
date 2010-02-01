@@ -4,9 +4,8 @@ Here's an example:
 
 	include
 		glob
-			folder: .
-			glob: *.{h,c,cpp}
-			recursive: no
+			./|*.{h,c,cpp}
+			Desktop/!|*.txt
 		file
 			Desktop/
 			.bash_profile
@@ -23,6 +22,8 @@ Here's an example:
 	* one file/folder (`Desktop/`, `.bash_profile`)
 * glob
 	* shell-expansion (`*.h`, `help.?`, `test.{a,b,c}`)
+	* specify specific folder for expanding within
+	* way to disable recursive expansion
 * size
 	* less than (`less than 20KB`)
 	* greater than (`greater than 1MB`)
