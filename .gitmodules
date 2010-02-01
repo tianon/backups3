@@ -1,0 +1,3 @@
+[submodule "s3fslite"]
+	path = s3fslite
+	url = git://github.com/russross/s3fslite.git
