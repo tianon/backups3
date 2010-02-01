@@ -50,6 +50,6 @@ Obviously, we're using Git.  I think that's enough said.
 
 ## Remaining Tasks
 
-* decide on configuration file format
+* decide on configuration file format  (Andrew is currently developing this)
 * decide how configuration will work
 	* (default of include all files, or default of exclude all files?)
