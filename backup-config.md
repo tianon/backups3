@@ -26,7 +26,7 @@ Here's an example:
 
 * `bucket`
 	* see [Amazon AWS "Security Credentials" page](http://aws.amazon.com/security-credentials)
-		<!-- is this really where we go to discover our current bucket names? -->
+		* is this really where we go to discover our current bucket names?
 * `accessKeyId`
 	* see [Amazon AWS "Security Credentials" page](http://aws.amazon.com/security-credentials)
 * `secretAccessKey`
