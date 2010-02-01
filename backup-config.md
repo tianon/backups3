@@ -25,8 +25,7 @@ Here's an example:
 ## Clauses
 
 * `bucket`
-	* see [Amazon AWS "Security Credentials" page](http://aws.amazon.com/security-credentials)
-<!-- is this really where we go to discover our current bucket names? -->
+	* see [Amazon AWS "Security Credentials" page](http://aws.amazon.com/security-credentials) <!-- is this really where we go to discover our current bucket names? -->
 * `accessKeyId`
 	* see [Amazon AWS "Security Credentials" page](http://aws.amazon.com/security-credentials)
 * `secretAccessKey`
