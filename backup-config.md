@@ -2,6 +2,12 @@
 
 Here's an example:
 
+	bucket
+		i-has-a-bucket
+	accessKeyId
+		022QF06E7MXBSH9DHM02
+	secretAccessKey
+		kWcrlUX5JEDGM/LtmEENI/aVmYvHNif5zB+d9+ct
 	include
 		glob
 			./|*.{h,c,cpp}
@@ -15,6 +21,19 @@ Here's an example:
 	exclude
 		size
 			greater than 1GB
+
+### Clauses
+
+* `bucket`
+	* see <http://aws.amazon.com/security-credentials>
+* `accessKeyId`
+	* see <http://aws.amazon.com/security-credentials>
+* `secretAccessKey`
+	* see <http://aws.amazon.com/security-credentials>
+* `include`
+	* see Include/Exclude section below
+* `exclude`
+	* see Include/Exclude section below
 
 ## Include/Exclude
 
@@ -30,8 +49,8 @@ To determine which files are included in the backup, the following steps are fol
 	* one file/folder (`Desktop/`, `.bash_profile`)
 * `glob`
 	* shell-expansion (`*.h`, `help.?`, `test.{a,b,c}`)
-	* specify specific folder for expanding within
-	* way to disable recursive expansion
+	* specify specific folder for expanding within (`Desktop/`)
+	* way to disable recursive expansion (`!`, as in `Desktop/!`)
 * `size`
 	* less than (`less than 20KB`)
 	* greater than (`greater than 1MB`)
