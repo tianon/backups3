@@ -43,7 +43,7 @@ To determine which files are included in the backup, the following steps are fol
 2. take all `exclude` rules, union them together
 3. `include` - `exclude` = final list (`exclude` rules are all applied to the final `include` list)
 
-### Types
+### Rule Types
 
 * `file`
 	* one file/folder (`Desktop/`, `.bash_profile`)
