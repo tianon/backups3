@@ -1,4 +1,4 @@
-# Configuration File Syntax
+# Backup Configuration File
 
 Here's an example:
 

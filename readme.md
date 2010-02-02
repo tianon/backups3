@@ -4,7 +4,7 @@
 
 ### Global Configuration
 
-TODO (setting up the global config file)
+To configure the backup functionality for the entire machine, one must use the global configuration file, documented in [global-config.md](http://github.com/tianon/backups3/blob/master/global-config.md).
 
 #### Apache (Web Interface)
 
