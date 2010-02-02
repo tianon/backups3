@@ -49,5 +49,8 @@ Obviously, we're using Git.  I think that's enough said.
 ## Remaining Tasks
 
 * implement cron job
+	* Andrew, Ben
 * implement web interface (browsing backups)
+	* Andrew, Ben, Jon
 * implement web interface (configuration)
+	* Jon, Josh, Talon
