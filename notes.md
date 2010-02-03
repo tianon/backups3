@@ -54,3 +54,19 @@ Obviously, we're using Git.  I think that's enough said.
 	* Andrew, Ben, Jon
 * implement web interface (configuration)
 	* Jon, Josh, Talon
+
+## More Information
+
+### Style
+
+Waterfall.
+
+### Stakeholders
+
+* Faculty
+	* Russ Ross
+* Students
+
+### Schedule
+
+To be announced.
