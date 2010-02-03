@@ -69,4 +69,6 @@ Waterfall.
 
 ### Schedule
 
-To be announced.
+* Feb 28th - Design and Planning finished
+* April 1 - Coding
+* April 28 - Testing &amp; Documentation
