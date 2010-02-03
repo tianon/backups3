@@ -69,6 +69,10 @@ Waterfall.
 
 ### Schedule
 
-* Feb 28th - Design and Planning finished
-* April 1 - Coding
-* April 28 - Testing &amp; Documentation
+* Feb 28th - Design and Planning finished  
+	Feb 5th - Planning Complete  
+	Feb 28th - Design Complete
+* April 1th - Coding Complete  
+	(both web interfaces and perl back-end done)
+* April 28th - Testing &amp; Documentation  
+	April 14th - Testing Complete
