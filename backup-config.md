@@ -21,6 +21,9 @@ Here's an example:
 	exclude
 		size
 			greater than 1GB
+	exemption
+		file
+			something-important-bigger-than-a-gig.zip
 
 ## Clauses
 
@@ -32,17 +35,19 @@ Here's an example:
 * `secretAccessKey`
 	* see [Amazon AWS "Security Credentials" page](http://aws.amazon.com/security-credentials)
 * `include`
-	* see Include/Exclude section below
+	* see Include/Exclude/Exemption section below
 * `exclude`
-	* see Include/Exclude section below
+	* see Include/Exclude/Exemption section below
 
-## Include/Exclude
+## Include/Exclude/Exemption
 
 To determine which files are included in the backup, the following steps are followed:
 
 1. take all `include` rules, union them together
 2. take all `exclude` rules, union them together
-3. `include` - `exclude` = final list (`exclude` rules are all applied to the final `include` list)
+3. take all `exemption` rules, union them together
+4. `include` - (`exclude` - `exemption`) = final list  
+	(`exclude` rules are all applied to the final `include` list, but only after matching `exemption` files are removed from the `exclude` list)
 
 ### Rule Types
 
