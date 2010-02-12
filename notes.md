@@ -3,14 +3,11 @@
 ## Responsibilities
 
 * Andrew
-	* sniper
 	* primary coder
 	* tester
-	* just about everything/ultimate killer of all
 * Ben
 	* coder
 	* manager
-	* whatever is left
 * Jonathan
 	* IT/VT (web based) coder
 	* documenter
@@ -19,12 +16,9 @@
 * Josh
 	* primary config coder
 	* assistant tester
-	* optimist
 * Talon
-	* sniper
 	* secondary config coder
 	* tester
-	* not good looking enough to be a model/small weapon specialist
 
 ## Language
 
