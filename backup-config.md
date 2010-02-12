@@ -38,6 +38,8 @@ Here's an example:
 	* see Include/Exclude/Exemption section below
 * `exclude`
 	* see Include/Exclude/Exemption section below
+* `exemption`
+	* see Include/Exclude/Exemption section below
 
 ## Include/Exclude/Exemption
 
