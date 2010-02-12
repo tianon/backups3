@@ -12,23 +12,12 @@
 	* IT/VT (web based) coder
 	* documenter
 	* assistant manager
-	* with his IT background, Jon is now primary over all VT, ie. Web UI
 * Josh
 	* primary config coder
 	* assistant tester
 * Talon
 	* secondary config coder
 	* tester
-
-## Language
-
-Perl for both the backup script, and the backup access interface.
-
-PHP for the configuration interface.
-
-## Source Control Software
-
-Git.
 
 ## Primary Features
 
@@ -53,7 +42,7 @@ Git.
 
 ### Style
 
-Waterfall.
+Waterfall
 
 ### Stakeholders
 
@@ -70,3 +59,37 @@ Waterfall.
 	(both web interfaces and perl back-end done)
 * Apr 28th - Testing &amp; Documentation  
 	Apr 14th - Testing Complete
+
+## Software Requirements
+
+### Server
+
+* Ubuntu 8.04+ / Debian 4+ (or other Linux distribution)
+* PHP 5.1+
+* Perl 5.8+
+* Apache 2
+* Git
+
+### Client
+
+* any web browser
+
+## Hardware Requirements
+
+### Server
+
+* 700 MHz x86 processor
+* 384 MB of system memory (RAM)
+* 4 GB of disk space
+* network or Internet connection
+
+### Client
+
+* connection to the Internet
+
+## Other Requirements
+
+* Internet access (WiFi or Ethernet)
+* individual computers
+* comfortable work area (AC, bathroom, etc.)
+* recreational facilities for health and happiness
