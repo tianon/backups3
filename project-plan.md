@@ -1,4 +1,4 @@
-# Project Notes and Planning
+# Project Plan
 
 ## Responsibilities
 
