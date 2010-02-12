@@ -22,13 +22,13 @@
 
 ## Language
 
-Perl for both the backup script, and the web interface.
+Perl for both the backup script, and the backup access interface.
 
-It is definitely the best tool for the script job, and will make all our lives MUCH simpler if we use it for the web stuff, too.
+PHP for the configuration interface.
 
 ## Source Control Software
 
-Obviously, we're using Git.  I think that's enough said.
+Git.
 
 ## Primary Features
 
