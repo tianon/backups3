@@ -14,9 +14,11 @@
 	* assistant manager
 * Josh
 	* primary config coder
+	* designer
 	* assistant tester
 * Talon
 	* secondary config coder
+	* communicator
 	* tester
 
 ## Primary Features
