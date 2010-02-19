@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<style type="text/css">
+			.login {
+				text-align: center;
+				margin: auto;
+			}
+			.login th {
+				text-align: right;
+			}
+	</style>
+	</head>
+	<body>
+		<table style="width: 100%; height: 100%; text-align: center;">
+			<tr>
+				<td style="border: 1px solid black; vertical-align: middle;">
+					<h1>BackupS3</h1>
+					
+					<table class="login">
+						<tr>
+							<th><label for="bucket">Bucket Name:</label></th>
+							<td><input type="text" id="bucket" name="bucket" value="" /></td>
+						</tr>
+						<tr>
+							<th><label for="accessKeyId">Access Key ID:</label></th>
+							<td><input type="text" id="accessKeyId" name="accessKeyId" value="" /></td>
+						</tr>
+						<tr>
+							<th><label for="secretAccessKey">Secret Access Key:</label></th>
+							<td><input type="text" id="secretAccessKey" name="secretAccessKey" value="" /></td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align: right;">
+								<input type="submit" value="View Files &raquo;" />
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
