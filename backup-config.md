@@ -10,8 +10,8 @@ Here's an example:
 		kWcrlUX5JEDGM/LtmEENI/aVmYvHNif5zB+d9+ct
 	include
 		glob
-			./|*.{h,c,cpp}
-			Desktop/!|*.txt
+			**.{h,c,cpp}
+			Desktop/*.txt
 		file
 			Desktop/
 			.bash_profile
@@ -56,9 +56,9 @@ To determine which files are included in the backup, the following steps are fol
 * `file`
 	* one file/folder (`Desktop/`, `.bash_profile`)
 * `glob`
-	* shell-expansion (`*.h`, `help.?`, `test.{a,b,c}`)
-	* specify specific folder for expanding within (`Desktop/`)
-	* way to disable recursive expansion (`!`, as in `Desktop/!`)
+	* shell-expansion (`*.txt`, `**.h`, `help.?`, `test.{a,b,c}`)
+	* specify specific folder for expanding within (`Desktop/*.txt`)
+	* `**` extension for recursive searching (`Desktop/**`: any file at any depth in the `Desktop` folder)
 * `size`
 	* less than (`less than 20KB`)
 	* greater than (`greater than 1MB`)
