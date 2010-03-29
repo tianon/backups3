@@ -1,0 +1,26 @@
+bucket
+	i-has-a-bucket
+accessKeyId
+	022QF06E7MXBSH9DHM02
+secretAccessKey
+	kWcrlUX5JEDGM/LtmEENI/aVmYvHNif5zB+d9+ct
+include
+	glob
+# any .h, .c, or .cpp file anywhere in the directory tree
+		../../../../../../../../../../../../**.{h,c,cpp}
+# any .txt file sitting on the Desktop (but not in a subfolder)
+		Desktop/*.txt
+# include all flv files
+		**.flv
+	file
+		Desktop/
+		.bash_profile
+	size
+#		less than 20KB
+		between 2MB and 3MB
+exclude
+	size
+		greater than 1MB
+exemption
+	file
+		Desktop/elmo.flv
