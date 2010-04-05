@@ -6,9 +6,13 @@ package BackupS3;
 
 use File::Basename qw(dirname);
 use Cwd qw(realpath cwd);
-use File::Spec::Functions;
+use File::Spec::Functions qw(catdir catfile tmpdir);
 use File::Find;
 use File::KGlob2RE qw(kglob2re);
+use Digest::SHA qw(sha256_hex);
+use FindBin; FindBin::again();
+
+our $realBin = $FindBin::RealBin;
 
 sub parse_global_config {
 	my ($filename) = @_;
@@ -331,6 +335,92 @@ sub get_final_file_list {
 	$exemp = parse_include($dir, $config->{'exemption'}) if exists $config->{'exemption'};
 	
 	return array_subtract($incl, array_subtract($excl, $exemp));
+}
+
+sub perform_backup {
+	# $rel_dir will be stripped from all files in the $final_file_list when they get copied to $dest, to keep the directory structure from $rel_dir to $dest_dir the same
+	my ($final_file_list, $config) = @_;
+	my $rel_dir = $config->{'dir'};
+	
+	my @mod_file_list = ();
+	for my $final_file (@$final_file_list) {
+		if ($final_file =~ s# ^ \Q$rel_dir\E/ ##x) {
+			push @mod_file_list, $final_file;
+		}
+	}
+	
+	my $glob_tmp = catdir(tmpdir(), sha256_hex($realBin));
+	mkdir $glob_tmp if !-d $glob_tmp;
+	
+	my $cur_tmp = catdir($glob_tmp, sha256_hex($rel_dir));
+	mkdir $cur_tmp if !-d $cur_tmp;
+	
+	my $easier_tmp = catdir($glob_tmp, $config->{'bucket'} . '.mount');
+	unlink $easier_tmp if -e $easier_tmp;
+	symlink $cur_tmp, $easier_tmp;
+	
+	#print "\nglob_tmp: $glob_tmp\ncur_tmp: $cur_tmp\neasier_tmp: $easier_tmp\n";
+	
+	# make sure it's unmounted
+	system(
+		'fusermount',
+		'-uq',
+		$cur_tmp,
+	);
+	
+	# mount it using s3fslite
+	system(
+		$realBin . '/../s3fslite/s3fs',
+		$config->{'bucket'},
+		$cur_tmp,
+		'-o',
+#		'user'
+#		. ',' .
+		'accessKeyId=' . $config->{'accessKeyId'}
+		. ',' .
+		'secretAccessKey=' . $config->{'secretAccessKey'}
+		. ',' .
+		'attr_cache=' . $glob_tmp
+		. ',' .
+		'url=http://localhost:3002/%s'
+		,
+	);
+	
+	# rsync -aW
+	my $child = fork();
+	if ($child == 0) {
+		# spawned a child for successful chdir
+		chdir $rel_dir;
+		system(
+			'rsync',
+			'-r', # recursive
+			'-R', # relative path names
+			'-l', # copy symlinks as symlinks
+			'-p', # permissions
+			'-t', # times
+			'-W', # whole file (no partial tricks, because s3fslite doesn't work well with them)
+			#'-v', # verbose
+			@mod_file_list,
+			$cur_tmp,
+		);
+		exit;
+	}
+	else {
+		waitpid $child, 0; # wait for the child process to exit
+	}
+	
+	# unmount
+	system(
+		'fusermount',
+		'-u',
+		$cur_tmp,
+	);
+	
+	# clean up
+	rmdir $cur_tmp;
+	unlink $easier_tmp;
+	
+	return;
 }
 
 1;

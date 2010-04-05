@@ -16,6 +16,6 @@ for my $file (@$inc) {
 	my $config = BackupS3::parse_backup_config($file);
 	my $dir = $config->{'dir'};
 	my $final_file_list = BackupS3::get_final_file_list($dir, $config);
-	print Dumper($final_file_list);
-	# TODO mount the AmazonS3 stuff and backup the files in $final_file_list
+	#print Dumper($final_file_list);
+	BackupS3::perform_backup($final_file_list, $config);
 }
