@@ -374,8 +374,6 @@ sub perform_backup {
 		$config->{'bucket'},
 		$cur_tmp,
 		'-o',
-#		'user'
-#		. ',' .
 		'accessKeyId=' . $config->{'accessKeyId'}
 		. ',' .
 		'secretAccessKey=' . $config->{'secretAccessKey'}
