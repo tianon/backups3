@@ -5,7 +5,7 @@ Here's an example:
 	backupConfigFilename
 		.backups3
 	backupConfigEnforcedMode
-		600
+		0600
 	include
 		/home|3
 		/var/www|*
@@ -15,7 +15,7 @@ Here's an example:
 * `backupConfigFilename`
 	* `filename` (defaults to `.backups3`)
 * `backupConfigEnforcedMode`
-	* the three-digit file permissions to be required on _all_ backup configuration files (defaults to `600`)
+	* the three-digit file permissions to be required on _all_ backup configuration files (defaults to `0600`)
 * `include`
 	* `absolute_path|depth`
 		* `absolute_path`: `/home`, `/var/www`, etc.

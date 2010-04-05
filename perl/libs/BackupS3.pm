@@ -17,7 +17,7 @@ sub parse_global_config {
 	
 	my %config = (
 		backupConfigFilename => '.backups3',
-		backupConfigEnforcedMode => '600',
+		backupConfigEnforcedMode => '0600',
 		include => {}, # path => depth
 	);
 	
@@ -65,6 +65,52 @@ sub parse_global_config {
 	}
 	
 	return \%config;
+}
+
+sub parse_global_include {
+	my ($conf) = @_;
+	
+	my $enforcedMode = $conf->{'backupConfigEnforcedMode'};
+	if ($enforcedMode =~ m/^0\d*$/) {
+		$enforcedMode = oct $enforcedMode;
+	}
+	elsif ($enforcedMode =~ m/^\d+$/) {
+		$enforcedMode = int $enforcedMode;
+	}
+	
+	my $configFilename = $conf->{'backupConfigFilename'};
+	
+	my @ret = ();
+	
+	for my $folder (keys %{$conf->{'include'}}) {
+		my $depth = int($conf->{'include'}->{$folder});
+		
+		$folder =~ s! /+ $ ! !x;
+		$folder = '/' if $folder eq '';
+		
+		warn "$folder is not a directory" and next if !-d $folder;
+		
+		find({
+				# super thanks to "find2perl" command -- it's epic
+				wanted => sub {
+					my ($dev,$ino,$mode,$nlink,$uid,$gid);
+					
+					my $this_file = $File::Find::name;
+					$this_file =~ s!^\Q$folder\E/!!;
+					
+					my $fldepth = ($this_file =~ tr[/][]);
+					
+					return if $fldepth >= $depth;
+					
+					m/^\Q$configFilename\E\z/s &&
+					(($dev,$ino,$mode,$nlink,$uid,$gid) = lstat($_)) &&
+					(($mode & 0777) == $enforcedMode) &&
+					push @ret, $File::Find::name;
+				},
+			}, $folder);
+	}
+	
+	return \@ret;
 }
 
 our $backup_config_single_keys = '^(bucket|accessKeyId|secretAccessKey)$';
