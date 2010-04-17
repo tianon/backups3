@@ -1,0 +1,3 @@
+Install the following modules using CPAN:
+
+cpan -i Moose MooseX::StrictConstructor Data::Stream::Bulk::Callback MooseX::Types::DateTimeX DateTime::Format::HTTP Digest::MD5::File Regexp::Common LWP::UserAgent::Determined

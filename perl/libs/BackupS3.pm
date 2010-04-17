@@ -10,9 +10,10 @@ use File::Spec::Functions qw(catdir catfile tmpdir);
 use File::Find;
 use File::KGlob2RE qw(kglob2re);
 use Digest::SHA qw(sha256_hex);
+use Net::Amazon::S3;
 use FindBin; FindBin::again();
 
-our $realBin = $FindBin::RealBin;
+my $realBin = $FindBin::RealBin;
 
 sub parse_global_config {
 	my ($filename) = @_;
@@ -337,6 +338,8 @@ sub get_final_file_list {
 	return array_subtract($incl, array_subtract($excl, $exemp));
 }
 
+use constant URL => 'http://localhost:3002/%s';
+
 sub perform_backup {
 	# $rel_dir will be stripped from all files in the $final_file_list when they get copied to $dest, to keep the directory structure from $rel_dir to $dest_dir the same
 	my ($final_file_list, $config) = @_;
@@ -370,7 +373,7 @@ sub perform_backup {
 	
 	# mount it using s3fslite
 	system(
-		$realBin . '/../s3fslite/s3fs',
+		'./s3fs',
 		$config->{'bucket'},
 		$cur_tmp,
 		'-o',
@@ -379,8 +382,8 @@ sub perform_backup {
 		'secretAccessKey=' . $config->{'secretAccessKey'}
 		. ',' .
 		'attr_cache=' . $glob_tmp
-		. ',' .
-		'url=http://localhost:3002/%s'
+#		. ',' .
+#		'url=' . URL
 		,
 	);
 	
@@ -419,6 +422,38 @@ sub perform_backup {
 	unlink $easier_tmp;
 	
 	return;
+}
+
+sub bucket_list {
+	my ($bucket, $accessKeyId, $secretAccessKey) = @_;
+	
+	my $s3 = Net::Amazon::S3->new({
+			aws_access_key_id => $accessKeyId,
+			aws_secret_access_key => $secretAccessKey,
+			retry => 1,
+#			url => '%s://localhost:3002%s%s', # why yes, I _did_ modify Net::Amazon::S3 to support this, thank you
+		});
+	
+	my $buck = $s3->bucket($bucket) or die $s3->err . ': ' . $s3->errstr;
+	
+	my $response = $buck->list_all or die $s3->err . ': ' . $s3->errstr;
+	
+	return $response->{'keys'};
+}
+
+sub bucket_get_file {
+	my ($bucket, $accessKeyId, $secretAccessKey, $file_key) = @_;
+	
+	my $s3 = Net::Amazon::S3->new({
+			aws_access_key_id => $accessKeyId,
+			aws_secret_access_key => $secretAccessKey,
+			retry => 1,
+#			url => '%s://localhost:3002%s%s', # why yes, I _did_ modify Net::Amazon::S3 to support this, thank you
+		});
+	
+	my $buck = $s3->bucket($bucket) or die $s3->err . ': ' . $s3->errstr;
+	
+	return $buck->get_key($file_key) or die $s3->err . ': ' . $s3->errstr;
 }
 
 1;
